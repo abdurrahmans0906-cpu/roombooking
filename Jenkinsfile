@@ -4,29 +4,29 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // This pulls your code from GitHub
                 checkout scm
             }
         }
         stage('Build') {
             steps {
                 echo 'Building Room Booking App...'
-                // Since it's HTML/JS, we just verify the index.html exists
-                sh 'ls -al' 
+                // 'dir' is the Windows version of 'ls'
+                bat 'dir' 
             }
         }
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                // Simple check to see if the file contains the title
-                sh 'grep -q "Hotel Room Booking" index.html'
+                // 'findstr' is the Windows version of 'grep'
+                bat 'findstr /C:"Hotel Room Booking" index.html'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying to local folder...'
-                // For a beginner, we "deploy" by moving it to a deployment folder
-                sh 'mkdir -p deploy && cp -r * deploy/'
+                // Windows commands to create folder and copy files
+                bat 'if not exist deploy mkdir deploy'
+                bat 'xcopy /y /s * deploy\\'
             }
         }
     }
