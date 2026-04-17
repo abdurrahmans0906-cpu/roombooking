@@ -1,8 +1,6 @@
 pipeline {
     agent any
-    tools {
-        maven 'Maven3' // Ensure 'Maven3' is configured in Jenkins Global Tool Configuration
-    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -12,7 +10,7 @@ pipeline {
         stage('Build & Test') {
             steps {
                 echo 'Running Maven Build and JUnit Tests...'
-                // 'mvn clean test' compiles the code and runs JUnit tests
+                // This uses the 'mvn' command from your Windows System PATH
                 bat 'mvn clean test' 
             }
         }
