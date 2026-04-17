@@ -1,0 +1,10 @@
+body { font-family: sans-serif; background: #f4f4f4; display: flex; justify-content: center; padding: 20px; }
+.container { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 400px; }
+.booking-form { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+input, select, button { padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+button { background: #28a745; color: white; border: none; cursor: pointer; transition: 0.3s; }
+button:hover { background: #218838; }
+ul { list-style: none; padding: 0; }
+li { background: #eee; margin-bottom: 5px; padding: 10px; display: flex; justify-content: space-between; align-items: center; border-radius: 4px; }
+.cancel-btn { background: #dc3545; padding: 5px 10px; font-size: 12px; }
+.cancel-btn:hover { background: #c82333; }

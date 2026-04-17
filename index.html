@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Booking System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Hotel Room Booking</h2>
+        <div class="booking-form">
+            <input type="text" id="guestName" placeholder="Guest Name">
+            <select id="roomType">
+                <option value="Single Room">Single Room - $100</option>
+                <option value="Double Room">Double Room - $180</option>
+                <option value="Suite">Suite - $350</option>
+            </select>
+            <button onclick="bookRoom()">Book Room</button>
+        </div>
+        <h3>Current Bookings</h3>
+        <ul id="bookingList"></ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
