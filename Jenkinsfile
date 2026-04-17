@@ -1,28 +1,24 @@
 pipeline {
     agent any
-
+    tools {
+        maven 'Maven3' // Ensure 'Maven3' is configured in Jenkins Global Tool Configuration
+    }
     stages {
         stage('Checkout') {
             steps {
                 checkout scm
             }
         }
-        stage('Build') {
+        stage('Build & Test') {
             steps {
-                echo 'Building Room Booking App...'
-                bat 'dir' 
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Running tests...'
-                bat 'findstr /C:"Hotel Room Booking" index.html'
+                echo 'Running Maven Build and JUnit Tests...'
+                // 'mvn clean test' compiles the code and runs JUnit tests
+                bat 'mvn clean test' 
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying to local folder...'
-                // Create a deployment folder outside the current workspace to avoid cyclic errors
+                echo 'Deploying Application...'
                 bat 'if not exist C:\\RoomBooking_Deploy mkdir C:\\RoomBooking_Deploy'
                 bat 'xcopy /y /s * C:\\RoomBooking_Deploy\\'
             }
